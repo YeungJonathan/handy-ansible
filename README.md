@@ -1,10 +1,6 @@
 # Jono's notes for ansible playbook and deploy
 
-DevOps
-
-ANSIBLE
-
-Ansible Architecture
+## Ansible Architecture
 - Inventory maps host
 - Configuration sets 
 - Modules define actions
@@ -12,25 +8,24 @@ Ansible Architecture
 - Python to build the execution
 - Ssh to deliver the task
 
-2 Execution types
+## 2 Execution types
 - Remote execution
 - Local execution
     - When remote box is not executing plays
 
-Deploy steps
-- mkdir filename
-- cd filename
+## Deploy steps
+create file and cd into it
 
 Vagrant
 - vagrant init (initialise vagrant file)
 - Configure the vagrant file:
 
-config.vm.define “web” do |web|
-    web.vm.box = "centos7"
-    web.vm.hostname = "web"
-    web.vm.network "private_network", ip: "192.168.33.20"
-    web.vm.network "forwarded_port", guest:80, host:8080
-end
+      config.vm.define “web” do |web|
+      		web.vm.box = "centos7"
+		web.vm.hostname = "web"
+		web.vm.network "private_network", ip: "192.168.33.20"
+		web.vm.network "forwarded_port", guest:80, host:8080
+		end
 
 - vagrant up
 - vboxmanage list runningvms (check if servers running)
@@ -38,8 +33,9 @@ end
 Install ansible in server
 
 - Umbuntu box
-    - vagrant ssh name
-    - sudo apt-get install ansible
+
+      vagrant ssh name
+      sudo apt-get install ansible
 
 - centOS box
     - vagrant ssh name
@@ -76,7 +72,7 @@ Without DNS:
 ￼
 --sudo add super control
 
-ssh vagrant@address => save footprint => known host in ~/.ssh
+    ssh vagrant@address => save footprint => known host in ~/.ssh
 
 ansible address -i inventory -u vagrant -m ping -k
 -i = inventoryFile, -u = username, -m = module, -k = prompts password
