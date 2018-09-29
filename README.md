@@ -30,7 +30,7 @@ Vagrant
 - vagrant up
 - vboxmanage list runningvms (check if servers running)
 
-Install ansible in server
+## Install ansible in server
 
 - Umbuntu box
 
@@ -38,19 +38,20 @@ Install ansible in server
       sudo apt-get install ansible
 
 - centOS box
-    - vagrant ssh name
-    - sudo yum install peel-release
-    - sudo yum install ansible
-				OR
-    - sudo yum install gcc
-    - sudo yum install python-setuptools
-    - sudo easy_install pip
-    - sudo yum install python-devel
-    - sudo pip install ansible
 
-vi inventory => creates inventory
+      vagrant ssh name
+      sudo yum install peel-release
+      sudo yum install ansible
+      
+      OR
+      
+      sudo yum install gcc
+      sudo yum install python-setuptools
+      sudo easy_install pip
+      sudo yum install python-devel
+      sudo pip install ansible
 
-Store IP address inside 
+Create inventory then store IP address inside 
 
 With DNS:
 
@@ -73,13 +74,13 @@ Without DNS:
 --sudo add super control
 
     ssh vagrant@address => save footprint => known host in ~/.ssh
-
-ansible address -i inventory -u vagrant -m ping -k
+    ansible address -i inventory -u vagrant -m ping -k
+    
 -i = inventoryFile, -u = username, -m = module, -k = prompts password
 
 ssh password = vagrant
 
-Log-in vagrant server
+## Log-in vagrant server
 
 vagrant ssh name
 
@@ -89,18 +90,19 @@ ansible all -I inventory -u vagrant -m command -a “command”
 command => run any type of command in the system
 -a => allows put parameters in the command module
 
-Tree
+## Tree
 sudo apt-get install tree
 
 Configuration file
 - ansible.cfg
-    ￼
-    [default]
-    host_key_checking=False
+ 
+      [default]
+      host_key_checking=False
 
 [defaults] = set default
 
-export ANSIBLE_HOST_KEY_CHECKING = True
+    export ANSIBLE_HOST_KEY_CHECKING = True
+    
 export => set configuration without entering the file
 
 Modules
