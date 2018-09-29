@@ -21,7 +21,7 @@ Vagrant
 - Configure the vagrant file:
 
       config.vm.define “web” do |web|
-      		web.vm.box = "centos7"
+		web.vm.box = "centos7"
 		web.vm.hostname = "web"
 		web.vm.network "private_network", ip: "192.168.33.20"
 		web.vm.network "forwarded_port", guest:80, host:8080
